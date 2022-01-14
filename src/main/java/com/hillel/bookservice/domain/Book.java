@@ -1,17 +1,23 @@
 package com.hillel.bookservice.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "books")
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+//@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
 
     @Id
@@ -21,12 +27,13 @@ public class Book {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_fk")
-    private Author author;
-
+    //@ManyToOne
+    //@JoinColumn(name = "author_fk")
     //@JsonIgnore
-    @OneToMany
+    //private Author author;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id")
     private Set<Reward> rewards = new HashSet<>();
 
 }

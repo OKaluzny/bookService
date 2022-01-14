@@ -22,15 +22,18 @@ public class Reward {
 
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = LAZY)
-    @JoinColumn(name = "author_fk", nullable = false)
+    @ManyToOne
+    //@ManyToOne(cascade = CascadeType.ALL, fetch = EAGER)
+    //@JoinColumn(name = "author_fk", nullable = false)
     private Author author;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = LAZY)
-    @JoinColumn(name = "book_fk", nullable = false)
+    @ManyToOne
+    //@ManyToOne(cascade = CascadeType.ALL, fetch = EAGER)
+    //@JoinColumn(name = "book_fk", nullable = false)
     private Book book;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = LAZY)
-    @JoinColumn(name = "publisher_fk", nullable = false)
+    @ManyToOne
+    //@ManyToOne(cascade = CascadeType.ALL, fetch = EAGER)
+    //@JoinColumn(name = "publisher_fk", nullable = false)
     private Publisher publisher;
 }

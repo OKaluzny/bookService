@@ -1,6 +1,5 @@
 package com.hillel.bookservice.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,19 +21,21 @@ public class Publisher {
     private Long publisherId;
 
     private String name;
-
     private String country;
-
     private String city;
-
     private String address;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
+    //@JsonIgnore
+    //@OneToMany(mappedBy = "publisher")
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "publisher_id")
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Author> authors = new HashSet<>();
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
+    //@JsonIgnore
+    //@OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "publisher_id")
     private List<Reward> rewards = new ArrayList<>();
 
 }
