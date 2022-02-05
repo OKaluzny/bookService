@@ -1,6 +1,5 @@
 package com.hillel.bookservice;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -8,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class BookServiceApplicationTests {
 
     @Test
-    //@Disabled("disabled until bug#1039 is fixed")
+        //@Disabled("disabled until bug#1039 is fixed")
     void contextLoads() {
     }
 

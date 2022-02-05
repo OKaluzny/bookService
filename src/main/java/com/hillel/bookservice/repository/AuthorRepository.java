@@ -3,7 +3,9 @@ package com.hillel.bookservice.repository;
 import com.hillel.bookservice.domain.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     @Query("select a.firstName,a.lastName " +
@@ -14,5 +16,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     Author findAuthorByPublisherPublisherId(Long id);
 
     Author getAuthorByPublisherPublisherId(Long id);
+
+    Author getAuthorByFirstName (String name);
 
 }
