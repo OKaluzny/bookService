@@ -1,5 +1,6 @@
 package com.hillel.bookservice.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import static javax.persistence.FetchType.*;
 @Table(name = "rewards")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Reward {
 
     @Id

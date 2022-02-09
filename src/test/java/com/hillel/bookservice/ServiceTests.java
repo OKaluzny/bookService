@@ -48,7 +48,7 @@ public class ServiceTests {
 
         when(repository.findById(author.getAuthorId())).thenReturn(Optional.of(author));
 
-        Author expected = service.getBookAuthorById(author.getAuthorId());
+        Author expected = service.findBookAuthorById(author.getAuthorId());
 
         assertThat(expected).isSameAs(author);
         verify(repository).findById(author.getAuthorId());
@@ -61,6 +61,6 @@ public class ServiceTests {
         author.setFirstName("Mark");
 
         given(repository.findById(anyLong())).willReturn(Optional.empty());
-        service.getBookAuthorById(author.getAuthorId());
+        service.findBookAuthorById(author.getAuthorId());
     }
 }

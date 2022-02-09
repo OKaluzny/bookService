@@ -20,3 +20,11 @@ server:
   port: 8088 #set your port
   servlet:
     context-path: /v1
+
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: error
+    org.hibernate: error

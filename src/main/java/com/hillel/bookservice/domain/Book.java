@@ -15,8 +15,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
-//@NoArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class Book {
 

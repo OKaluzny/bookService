@@ -4,7 +4,7 @@ import com.hillel.bookservice.domain.Author;
 import com.hillel.bookservice.domain.Book;
 import com.hillel.bookservice.repository.AuthorRepository;
 import com.hillel.bookservice.service.AuthorService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +13,10 @@ import javax.persistence.EntityNotFoundException;
 
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthorResource {
 
     private final AuthorRepository authorRepository;
-    //private final PublisherRepository publisherRepository;
     private final AuthorService authorService;
 
     @PostMapping("/authors")
@@ -29,7 +28,7 @@ public class AuthorResource {
     @GetMapping("/authors/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Author getAuthorById(@PathVariable Long id) {
-        return authorService.getBookAuthorById(id);
+        return authorService.findBookAuthorById(id);
     }
 
     @PutMapping("/authors/{id}")
